@@ -1,0 +1,335 @@
+/* VARIABLES PERSONALIZADAS */
+:root {
+  --primary-color: #1e3c72; /* Azul elegante */
+  --accent-color: #71d227;  /* Naranja cálido */
+  --light-color: #f9f9f9;
+  --dark-color: #333;
+  --font-family: 'Roboto', sans-serif;
+}
+
+/* RESETEO GENERAL */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+html {
+  scroll-behavior: smooth;
+}
+
+
+/* ESTILO DEL BODY */
+body {
+  font-family: var(--font-family);
+  line-height: 1.6;
+  background-color: #fff;
+  color: var(--dark-color);
+
+  
+  opacity: 0;
+  animation: fadeInBody 1s ease forwards;
+}
+
+@keyframes fadeInBody {
+  to { opacity: 1; }
+}
+
+
+
+/* HEADER y NAV */
+
+header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background-color: var(--light-color);
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+  nav a.active {
+  border-bottom: 2px solid var(--accent-color);
+}
+
+
+.logo img {
+  max-height: 100px;
+  max-width: 300px;
+  /*margin-top: 15px; /* Baja el logo */
+}
+
+nav .logo img:hover {
+    transform: scale(1.05); /* Efecto de zoom al pasar el ratón */
+}
+
+nav ul {
+  display: flex;
+  list-style: none;
+  gap: 25px;
+}
+
+nav a {
+  text-decoration: none;
+  color: var(--primary-color);
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+nav a:hover {
+  color: var(--accent-color);
+}
+
+/* HERO */
+.hero {
+  background: linear-gradient(to right, #1e3c72, #2a5298);
+  color: white;
+  padding: 80px 20px;
+  text-align: center;
+}
+
+.hero h1 {
+  font-size: 2.8rem;
+  margin-bottom: 20px;
+}
+
+.hero p {
+  font-size: 1.2rem;
+  margin-bottom: 30px;
+}
+
+.cta-button {
+  background-color: var(--accent-color);
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 6px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.cta-button:hover {
+  background-color: #e67e22;
+}
+
+/* PAGE SECTION GENERAL */
+.page-section {
+  padding: 80px 20px;
+  text-align: center;
+  background-color: var(--light-color);
+}
+
+.page-section h2 {
+  font-size: 2.5rem;
+  margin-bottom: 40px;
+  color: var(--primary-color);
+  font-variant: small-caps;
+}
+
+/* SERVICIOS */
+.servicios-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 30px;
+  margin-top: 30px;
+}
+
+.servicio-card {
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  text-align: left;
+}
+.servicio-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  transition: all 0.3s ease;
+}
+
+
+/* GALERÍA */
+.gallery-container ul {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 25px;
+  list-style: none;
+  padding: 0;
+}
+
+.gallery-container li {
+  background-color: white;
+  padding: 10px;
+  border-radius: 6px;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+}
+.gallery-container img {
+  width: 100%;
+  border-radius: 6px;
+  transition: transform 0.3s ease;
+}
+.gallery-container img:hover {
+  transform: scale(1.05);
+}
+
+
+/* FORMULARIO */
+#contact-form {
+  max-width: 600px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+#contact-form input,
+#contact-form textarea {
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 1rem;
+}
+
+.contact-info {
+  margin-top: 20px;
+  font-size: 1rem;
+}
+a:focus, button:focus {
+  outline: 2px dashed var(--accent-color);
+  outline-offset: 3px;
+}
+
+/* == ESTILOS PARA LA PESTAÑA DE REDES SOCIALES == */
+/* ============================================= */
+
+/* Contenedor principal de la pestaña */
+.social-tab {
+    position: fixed; /* Fijo para que no se mueva con el scroll */
+    top: 50%; /* Lo centramos verticalmente */
+    right: 0; /* Lo pegamos a la derecha */
+    transform: translateY(-50%); /* Ajuste fino para el centrado vertical exacto */
+    z-index: 1000; /* Para que se muestre por encima de otros elementos */
+    display: flex; /* Para alinear el tirador y el panel */
+    flex-direction: row-reverse; /* El tirador a la derecha */
+    align-items: center;
+}
+
+/* El "tirador" o la parte visible de la pestaña */
+.social-tab-handle {
+    background-color: #0056b3; /* Un azul oscuro, puedes cambiarlo por tu color corporativo */
+    color: white;
+    padding: 15px 12px;
+    cursor: pointer;
+    writing-mode: vertical-rl; /* Escribe el texto en vertical */
+    text-orientation: mixed;
+    border-radius: 0 8px 8px 0; /* Redondea las esquinas derechas */
+    font-family: 'Roboto', sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    box-shadow: -3px 0px 8px rgba(0,0,0,0.2);
+    transition: background-color 0.3s;
+}
+
+.social-tab-handle:hover {
+    background-color: #007bff; /* Un azul más claro al pasar el ratón */
+}
+
+/* El icono dentro del tirador */
+.social-tab-handle i {
+    margin-bottom: 8px; /* Espacio entre el icono y el texto */
+}
+
+/* El panel que se desliza (oculto por defecto) */
+.social-panel {
+    background-color: #f8f9fa;
+    border: 1px solid #ddd;
+    box-shadow: -5px 0px 15px rgba(0,0,0,0.15);
+    padding: 15px;
+    transform: translateX(100%); /* Lo mueve fuera de la pantalla a la derecha */
+    transition: transform 0.4s ease-in-out; /* Animación suave */
+    visibility: hidden; /* Oculto para que no se pueda interactuar con él */
+    border-left: none;
+}
+
+/* ESTADO ABIERTO: Cuando la pestaña tiene la clase 'is-open' */
+.social-tab.is-open .social-panel {
+    transform: translateX(0); /* Lo trae de vuelta a su posición original */
+    visibility: visible; /* Lo hace visible e interactuable */
+}
+
+/* Estilo para cada enlace de red social */
+.social-panel a.social-icon {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: #333;
+    font-family: 'Roboto', sans-serif;
+    padding: 12px 10px;
+    border-radius: 5px;
+    margin-bottom: 8px;
+    transition: background-color 0.3s, color 0.3s;
+    min-width: 220px; /* Ancho mínimo para que se vea bien */
+}
+
+.social-panel a.social-icon:last-child {
+    margin-bottom: 0;
+}
+
+/* Iconos dentro de los enlaces */
+.social-panel a.social-icon i {
+    font-size: 24px;
+    margin-right: 15px;
+    width: 30px; /* Ancho fijo para alinear los textos */
+    text-align: center;
+}
+
+/* Colores personalizados para cada red social al pasar el ratón */
+.social-panel a.whatsapp:hover { background-color: #25D366; color: white; }
+.social-panel a.instagram:hover { background-color: #E4405F; color: white; }
+.social-panel a.facebook:hover { background-color: #1877F2; color: white; }
+
+
+/* FOOTER */
+footer {
+  background-color: var(--primary-color);
+  color: white;
+  text-align: center;
+  padding: 20px;
+  font-size: 0.9rem;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  nav {
+    flex-direction: column;
+    align-items: center;
+  }
+  nav ul {
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 10px;
+  }
+}
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.page-section {
+  animation: fadeInUp 0.8s ease-out;
+}
+
